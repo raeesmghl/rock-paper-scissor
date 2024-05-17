@@ -7,7 +7,8 @@ let insites = document.querySelector('.insites');
 menu.addEventListener('click',(event)=>{
     insites.style.scale = '1'
 
-    // copied from chatGPT
+    // copied from chatGPT (i did not get it so i mentioned it. but i think their is a click button on document and otherone is on the menu button and this line gives the importance to this event first)
+    // i only put this line because without this line, this code did not work;
     event.stopPropagation()
 });
 
@@ -20,7 +21,7 @@ document.addEventListener('click',()=>{
 
 // Optional: Add click event listener to the pop-up div to prevent it from closing when clicked inside
 insites.addEventListener('click', (event) => {
-    // Stop the click event from propagating to the document
+    // Stop the click event from propagating to the document     
     event.stopPropagation();
 });
 
@@ -41,7 +42,7 @@ insites.addEventListener('click', (event) => {
 
 
 
-
+// computer choose an option randomly
 let compChoice = () =>{
     let options = ['rock','paper','scissor'];
     return options[Math.floor(Math.random()*3)];
@@ -59,7 +60,9 @@ let choices = document.querySelectorAll('.choice');
 
 choices.forEach((choice)=>{
     choice.addEventListener('click',()=>{
-        
+
+
+        // on click it passed the id value of choice and in 2nd arg we invoke the compChoice to get the returned value choosed by computer
         finalResults(choice.id,compChoice())
     })
 })
@@ -70,10 +73,13 @@ choices.forEach((choice)=>{
 
 
 
+// i dont select the elements and store them on the top of the document but i select them just before the function in which they are gonna used;
 
 let showMessage = document.querySelector('.msg-container');
 let userScoreBox = document.querySelector('.player-1-score');
-let compScoreBox = document.querySelector('.player-2-score');
+let compScoreBox = document.querySelector('.player-2-score'); 
+
+
 
 
 
@@ -124,9 +130,16 @@ let insertingValues = (userWins,userVal,compVal) =>{
 }
 
 
+// actually game logic is finished here
 
 
 
+
+
+// i added some extra features here, a list of all the moves by user and computer
+
+
+// this function creates a complete div and puts append this in the doucment
 
 let updateEntryList = (userWins,userVal,compVal) =>{
 
@@ -171,6 +184,7 @@ let updateEntryList = (userWins,userVal,compVal) =>{
 
 }
 
+// this was very hactic for me to create all the elements and set their class, so i created this function;
 
 function createElWithClass (whichEl,classN){
     let el = document.createElement(whichEl);
